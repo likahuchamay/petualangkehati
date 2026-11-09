@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Petualang Kehati — Keanekaragaman Hayati Kelas 4 SD</title>
+    <meta name="description"
+        content="Media pembelajaran interaktif Petualang Kehati: jelajahi, kenali, dan lindungi keanekaragaman hayati.">
+    <meta name="theme-color" content="#2f7d32">
+    <link rel="icon" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { head: ['Fredoka', 'sans-serif'], body: ['Nunito', 'sans-serif'] },
+                    colors: { wood: '#7a4a22', woodd: '#4a2511', cream: '#fff3d6', leaf: '#2f7d32', leafd: '#1f5a24', sun: '#f5a623' }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="font-body bg-woodd text-woodd">
+    <div id="app" class="fixed inset-0 overflow-hidden">
+        <main id="scene" class="absolute inset-0"></main>
+        <nav id="hud" class="absolute top-2 right-2 z-40" aria-label="Navigasi cepat">
+            <span id="hudStar" class="chip hidden-xs" title="Total bintang"></span>
+            <button id="btnMusik" class="hud-btn" aria-label="Suara"></button>
+            <button id="btnHome" class="hud-btn" aria-label="Ke menu utama"></button>
+        </nav>
+        <div id="overlay" class="absolute inset-0 z-50 pointer-events-none"></div>
+    </div>
+    <div id="rotate"
+        class="fixed inset-0 z-[60] flex-col items-center justify-center gap-3 bg-woodd text-cream text-center p-8">
+        <div class="text-6xl animate-wiggle">📱</div>
+        <p class="font-head text-2xl">Putar layarmu ke mode landscape</p>
+        <p class="opacity-80">Supaya petualangan terlihat lebih seru dan lengkap.</p>
+    </div>
+    <audio id="musik" src="assets/audio/musik.m4a" loop preload="none"></audio>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/sprites-core.js"></script>
+    <script src="assets/js/sprites-hewan.js"></script>
+    <script src="assets/js/sprites-tumbuhan.js"></script>
+    <script src="assets/js/sprites-benda.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/dnd.js"></script>
+    <script src="assets/js/pages.js"></script>
+    <script src="assets/js/peta.js"></script>
+    <script src="assets/js/misi.js"></script>
+    <script src="assets/js/missions/m1.js"></script>
+    <script src="assets/js/missions/m2.js"></script>
+    <script src="assets/js/missions/m3.js"></script>
+    <script src="assets/js/missions/m4.js"></script>
+    <script src="assets/js/missions/m5.js"></script>
+    <script src="assets/js/missions/m6.js"></script>
+    <script src="assets/js/evaluasi.js"></script>
+    <script>PK.start()</script>
+</body>
+
+</html>
