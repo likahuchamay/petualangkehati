@@ -90,7 +90,7 @@ button:focus-visible, [tabindex]:focus-visible { outline: 3px solid #fff; outlin
 .drop-zone.over { transform: scale(1.02); box-shadow: 0 0 0 4px #fff, 0 0 26px rgba(255,255,255,.7); }
 
 /* ---------- Peta ---------- */
-.node { position: absolute; width: 10.4%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center; border: 0; padding: 0;
+.node { position: absolute; width: 9.6%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center; border: 0; padding: 0;
   font: 700 clamp(.9rem, 2.4vw, 1.9rem) 'Fredoka'; transition: transform .2s; z-index: 4; }
 .node .ring { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--woodd); box-shadow: 0 5px 0 #2a1308, 0 10px 16px rgba(0,0,0,.4), inset 0 3px 0 rgba(255,255,255,.35); }
 .node.locked .ring { background: radial-gradient(circle at 35% 30%, #a9a39a, #6d675f); }
@@ -277,3 +277,9 @@ button:focus-visible, [tabindex]:focus-visible { outline: 3px solid #fff; outlin
 .art { width: 1em; height: 1em; }
 [style*="width"] > .art, .fillart .art, .lens .art, .amb .art, .fit > .art { width: 100%; height: 100%; }
 .slot .art { width: 72%; height: 72%; }
+
+/* Foto asli (PK.pic) */
+.foto { overflow: hidden; object-fit: cover; border-radius: 22%; border: 3px solid #fff; box-shadow: 0 3px 8px rgba(0,0,0,.35); background: #e8dcc0; }
+.fillart .foto, .slot .foto { border-radius: 50%; }
+body .drag-item .card-art { font-size: 3.6rem !important; }
+body .it .card-art { font-size: 2.9rem !important; }

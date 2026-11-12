@@ -1,12 +1,12 @@
 /* Pos 5 — Manfaat Alam: tarik garis dari kekayaan alam ke manfaatnya (pointer; atau ketuk-ketuk). */
 PK.missions.m5 = {
   mount(game, ctx) {
-    const { emo, art, shuffle } = PK, NS = 'http://www.w3.org/2000/svg';
+    const { emo, art, shuffle } = PK, pic = PK.pic, NS = 'http://www.w3.org/2000/svg';
     const pairs = [['padi', 'Padi', 'nasi', 'Makanan pokok (pangan)', 'Beras dari padi menjadi nasi, makanan pokok kita.'], ['pohon-jati', 'Pohon jati', 'rumah', 'Bahan rumah & furnitur (papan)', 'Kayu jati kuat untuk rumah dan perabot.'],
       ['kapas', 'Tanaman kapas', 'baju', 'Bahan pakaian (sandang)', 'Serat kapas dipintal menjadi kain.'], ['jahe', 'Jahe & kunyit', 'obat', 'Obat tradisional', 'Jahe dan kunyit dipakai sebagai jamu.'],
       ['mangrove', 'Hutan mangrove', 'ombak', 'Menahan abrasi & rumah ikan', 'Akar mangrove menahan ombak dan jadi rumah ikan.'], ['karang', 'Terumbu karang', 'selam', 'Wisata bahari & mata pencaharian', 'Terumbu karang indah, menarik wisatawan, dan menjadi tempat ikan.']];
     const side = (arr, k) => arr.map(([i, c, t]) => `<div class="it ${k} paper !rounded-2xl p-1.5 sm:p-2 flex items-center gap-2 relative" data-p="${i}" tabindex="0" role="button" aria-label="${t}" style="touch-action:none;flex-direction:${k === 'L' ? 'row' : 'row-reverse'}">
-      <span class="text-4xl card-art shrink-0">${art(c)}</span><b class="font-head text-sm sm:text-lg leading-tight flex-1 ${k === 'R' ? 'text-right' : ''}">${t}</b><i class="dot absolute top-1/2 w-5 h-5 rounded-full bg-woodd border-2 border-cream" style="${k === 'L' ? 'right:-12px' : 'left:-12px'};transform:translateY(-50%)"></i></div>`).join('');
+      <span class="text-4xl card-art shrink-0">${pic(c)}</span><b class="font-head text-sm sm:text-lg leading-tight flex-1 ${k === 'R' ? 'text-right' : ''}">${t}</b><i class="dot absolute top-1/2 w-5 h-5 rounded-full bg-woodd border-2 border-cream" style="${k === 'L' ? 'right:-12px' : 'left:-12px'};transform:translateY(-50%)"></i></div>`).join('');
     const L = pairs.map((p, i) => [i, p[0], p[1]]), R = shuffle(pairs.map((p, i) => [i, p[2], p[3]]));
     game.innerHTML = `<div class="paper flex-1 min-w-0 p-3 sm:p-4 relative overflow-y-auto" id="box"><p class="text-center font-bold mb-2 text-sm hide-short">${emo('panah')} Tarik garis dari kekayaan alam (kiri) ke manfaatnya (kanan), atau ketuk keduanya.</p>
       <svg id="ln" class="absolute inset-0 w-full h-full pointer-events-none" style="z-index:3"></svg>

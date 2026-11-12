@@ -2,7 +2,7 @@
 PK.scenes.peta = (el, { justDone = 0 } = {}) => {
   const { $, emo, wait } = PK, D = PK.data.pos, W = 1280, H = 713, N = D.length;
   const pct = (x, y) => `left:${x / W * 100}%;top:${y / H * 100}%`;
-  const spot = [[520, 432], ...D.map((p) => [p.node[0] - 66, p.node[1] + 36]), [1118, 585]]; // 0=start, 1..N=pos, N+1=trofi
+  const spot = [[520, 432], ...D.map((p) => [p.node[0] - 66, p.node[1] + 60]), [1118, 585]]; // 0=start, 1..N=pos, N+1=trofi
   let dead = false, busy = true;
 
   el.innerHTML = `<div class="bg-fill bg-blur" style="background-image:url(assets/img/peta.jpg)"></div>

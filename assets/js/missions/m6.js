@@ -2,12 +2,11 @@
 PK.missions.m6 = {
   easy: 0, ok: 2,
   mount(game, ctx) {
-    const { emo, art, h } = PK, NEED = 8, LIVES = 3;
+    const { emo, art, h } = PK, pic = PK.pic, NEED = 8, LIVES = 3;
     const good = [['bibit', 'Menanam pohon'], ['tong', 'Buang sampah pada tempatnya'], ['daur', 'Daur ulang'], ['air', 'Hemat air'], ['penyu', 'Lindungi penyu'], ['taman', 'Rawat taman'], ['lebah', 'Jaga lebah']];
     const bad = [['kapak', 'Menebang liar'], ['api', 'Membakar hutan'], ['jaring', 'Berburu satwa langka'], ['sampah', 'Sampah ke sungai']];
     game.innerHTML = `<div class="flex-1 min-w-0 relative rounded-3xl overflow-hidden border-4 border-woodd shadow-2xl" id="play" style="background:url(assets/img/bg-hutan.jpg) center/cover;touch-action:none;cursor:ew-resize">
       <div class="absolute inset-0" style="background:linear-gradient(rgba(190,230,255,.25),rgba(20,70,25,.35))"></div>
-      ${[[0, 10, 12], [-20, 22, 9]].map(([x, y, w], i) => `<span class="absolute cloud-drift" style="left:${x}%;top:${y}%;width:${w}%;animation-delay:${i * -17}s;opacity:.85">${art('awan')}</span>`).join('')}
       <div class="absolute top-2 left-2 right-2 flex justify-between items-center gap-2 z-10"><span class="chip hide-short">${emo('panah')} Geser / tekan ◀ ▶ untuk menangkap aksi baik</span>
         <div class="flex-1 h-4 rounded-full overflow-hidden border-2 border-woodd bg-white/50 mx-2 max-w-xs"><div id="bar" class="h-full bg-leaf transition-all" style="width:0%"></div></div><span class="chip" id="hp"></span></div>
       <div id="basket" class="absolute sprite-shadow" style="left:0;bottom:6px;width:92px;height:92px;z-index:5">${art('keranjang')}</div>
@@ -21,7 +20,7 @@ PK.missions.m6 = {
     const reset = () => { items.forEach((i) => i.el.remove()); items = []; got = 0; lives = LIVES; spawn = 0; W = play.clientWidth; H = play.clientHeight; setX(W / 2 - 46); draw(); bar.style.width = '0%'; ctx.progress(0, NEED, 'Aksi baik'); };
     const add = () => {
       const g = Math.random() < .62, [c, t] = (g ? good : bad)[Math.floor(Math.random() * (g ? good.length : bad.length))], w = 118;
-      const el = h(`<div class="absolute grid place-items-center text-center" style="left:0;top:0;width:${w}px;z-index:4"><span class="sprite-shadow" style="width:64px;height:64px">${art(c)}</span><b class="chip !text-[13px] !py-0.5 !px-2 whitespace-normal leading-tight" style="background:${g ? '#2f7d32' : '#9b2c2c'}">${g ? '✔' : '✖'} ${t}</b></div>`);
+      const el = h(`<div class="absolute grid place-items-center text-center" style="left:0;top:0;width:${w}px;z-index:4"><span class="sprite-shadow" style="width:64px;height:64px">${pic(c)}</span><b class="chip !text-[13px] !py-0.5 !px-2 whitespace-normal leading-tight" style="background:${g ? '#2f7d32' : '#9b2c2c'}">${g ? '✔' : '✖'} ${t}</b></div>`);
       play.append(el); items.push({ el, x: 8 + Math.random() * (W - w - 16), y: -100, vy: 110 + Math.random() * 60 + got * 8, g, t, w });
     };
     const end = (win) => {

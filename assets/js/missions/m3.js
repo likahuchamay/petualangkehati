@@ -1,7 +1,7 @@
 /* Pos 3 — Rahasia Alam: Profesor Hantu memberi 5 teka-teki; pilih tingkat keanekaragaman hayati yang tepat. */
 PK.missions.m3 = {
   mount(game, ctx) {
-    const { emo, art } = PK;
+    const { emo, art } = PK, pic = PK.pic;
     const opts = { gen: ['dna', 'Tingkat Gen', 'Perbedaan ciri dalam satu jenis'], jenis: ['jejak', 'Tingkat Jenis', 'Perbedaan antarjenis makhluk hidup'], eko: ['globe', 'Tingkat Ekosistem', 'Perbedaan tempat hidup & lingkungannya'] };
     const riddles = [
       ['gen', [['mawar-merah', 'Merah'], ['mawar-pink', 'Pink'], ['mawar-putih', 'Putih']], 'Aku punya bunga berwarna merah, pink, dan putih. Semuanya tetap bunga mawar. Tingkat apakah aku?', 'Satu jenis (mawar) dengan warna berbeda = variasi gen.'],
@@ -17,7 +17,7 @@ PK.missions.m3 = {
       game.innerHTML = `<div class="m3 paper flex-1 min-w-0 p-3 sm:p-5 overflow-y-auto pop flex flex-col gap-3 items-center">
         <div class="flex items-center gap-3 w-full max-w-3xl"><div class="shrink-0 float sprite-shadow" style="width:clamp(64px,13vh,110px)">${art('burung-hantu')}</div>
           <div class="paper !rounded-2xl p-3 relative flex-1"><span class="chip mb-1">Teka-teki ${i + 1} dari ${riddles.length}</span><p class="font-bold text-sm sm:text-xl">${q}</p></div></div>
-        <div class="flex gap-2 sm:gap-5 justify-center">${pic.map(([c, t], n) => `<figure class="tilt paper !rounded-3xl p-2 sm:p-3 grid place-items-center"><span class="text-6xl sm:text-7xl card-art float" style="animation-delay:${n * -.6}s">${art(c)}</span><figcaption class="text-xs sm:text-sm font-extrabold">${t}</figcaption></figure>`).join('')}</div>
+        <div class="flex gap-2 sm:gap-5 justify-center">${pic.map(([c, t], n) => `<figure class="tilt paper !rounded-3xl p-2 sm:p-3 grid place-items-center"><span class="text-6xl sm:text-7xl card-art float" style="animation-delay:${n * -.6}s">${pic(c)}</span><figcaption class="text-xs sm:text-sm font-extrabold">${t}</figcaption></figure>`).join('')}</div>
         <div class="grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-3xl">${Object.entries(opts).map(([k, [ic, t, d]]) => `<button data-k="${k}" class="tilt paper !rounded-2xl p-2 sm:p-4 text-center"><div class="text-4xl sm:text-5xl mx-auto card-art" style="width:1em">${art(ic)}</div><b class="font-head sm:text-xl leading-tight block">${t}</b><small class="font-bold hidden sm:block">${d}</small></button>`).join('')}</div>
         <button class="btn btn-leaf" id="nx" style="display:none">${i === riddles.length - 1 ? 'Selesai' : 'Teka-teki berikutnya ➜'}</button></div>`;
       ctx.say('Profesor Hantu bertanya: pilih tingkat yang paling tepat!');

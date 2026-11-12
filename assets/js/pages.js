@@ -143,7 +143,7 @@
     const draw = () => {
       const m = D.materi[i];
       $('#slide', body).innerHTML = `<div class="pop h-full rounded-2xl bg-[#fbe9bd] p-4 text-center flex flex-col items-center justify-center gap-2"><div class="text-5xl card-art float">${emo(m.ico)}</div><h3 class="font-head text-2xl">${m.judul}</h3>
-        <p class="font-semibold text-lg leading-snug">${m.teks}</p><div class="flex gap-3 flex-wrap justify-center">${m.contoh.map(([c, t], n) => `<figure class="tilt paper !rounded-2xl p-2 grid place-items-center" style="animation-delay:${n * .3}s"><span class="text-6xl card-art">${emo(c)}</span><figcaption class="text-sm font-extrabold">${t}</figcaption></figure>`).join('')}</div>${m.ex ? `<p class="chip">${m.ex}</p>` : ''}</div>`;
+        <p class="font-semibold text-lg leading-snug">${m.teks}</p><div class="flex gap-3 flex-wrap justify-center">${m.contoh.map(([c, t], n) => `<figure class="tilt paper !rounded-2xl p-2 grid place-items-center" style="animation-delay:${n * .3}s"><span class="text-6xl card-art">${PK.pic(c) || emo(c)}</span><figcaption class="text-sm font-extrabold">${t}</figcaption></figure>`).join('')}</div>${m.ex ? `<p class="chip">${m.ex}</p>` : ''}</div>`;
       $('#dots', body).innerHTML = D.materi.map((_, n) => `<button aria-label="Materi ${n + 1}" data-n="${n}" class="w-3.5 h-3.5 rounded-full border-2 border-woodd ${n === i ? 'bg-sun scale-125' : 'bg-white'}"></button>`).join('');
     };
     const set = (n) => { i = (n + D.materi.length) % D.materi.length; PK.sfx('pop'); draw(); };

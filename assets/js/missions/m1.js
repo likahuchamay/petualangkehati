@@ -1,7 +1,7 @@
 /* Pos 1 — Pemburu Jejak: temukan makhluk hidup di pemandangan (ketuk). Butuh 5 dari 8, ada pengecoh benda mati & tombol petunjuk. */
 PK.missions.m1 = {
   mount(game, ctx) {
-    const { art, emo, h } = PK, NEED = 5; let hints = 3;
+    const { art, emo, h } = PK, pic = PK.pic, NEED = 5; let hints = 3;
     // [sprite, nama, x%, y%, lebar%, hidup?, keterangan, gerak]
     const items = [
       ['rusa', 'Rusa', 72, 64, 13, 1, 'Rusa bernapas, makan rumput, dan berkembang biak.'], ['kelinci', 'Kelinci', 46, 82, 9, 1, 'Kelinci tumbuh besar dan beranak. Ia makhluk hidup!'],
@@ -15,9 +15,9 @@ PK.missions.m1 = {
     game.innerHTML = `<div class="flex-1 min-w-0 relative rounded-3xl overflow-hidden border-4 border-woodd shadow-2xl" id="sc" style="background:url(assets/img/bg-gunung.jpg) center/cover">
         <div class="absolute top-2 left-2 chip z-10">${emo('kaca')} Ketuk makhluk hidup yang kamu temukan!</div>
         <button class="btn btn-sm absolute top-2 right-2 z-10" id="hint">${emo('lampu')} Petunjuk <b id="hc">${hints}</b></button>
-        ${items.map(([c, n, x, y, w, l, , mv], i) => `<button class="absolute fillart sprite-shadow" data-i="${i}" aria-label="${n}" style="left:${x}%;top:${y}%;width:${w}%;aspect-ratio:1;translate:-50% -50%"><span class="${mv || 'float'} block w-full h-full" style="animation-delay:${i * -.7}s">${art(c)}</span></button>`).join('')}</div>
+        ${items.map(([c, n, x, y, w, l, , mv], i) => `<button class="absolute fillart sprite-shadow" data-i="${i}" aria-label="${n}" style="left:${x}%;top:${y}%;width:${w}%;aspect-ratio:1;translate:-50% -50%"><span class="${mv || 'float'} block w-full h-full" style="animation-delay:${i * -.7}s">${pic(c)}</span></button>`).join('')}</div>
       <aside class="paper w-36 sm:w-52 p-2 sm:p-3 flex flex-col gap-2 overflow-y-auto"><h2 class="font-head text-center leading-tight text-sm sm:text-base">Koleksi Makhluk Hidup</h2><ul id="list" class="grid grid-cols-2 gap-1.5">
-        ${live.map(([c, n]) => `<li data-n="${n}" class="silhouette grid place-items-center p-1 rounded-xl bg-[#fbe9bd] text-[11px] sm:text-xs font-extrabold text-center"><span class="text-3xl sm:text-4xl">${art(c)}</span><span>???</span></li>`).join('')}</ul></aside>`;
+        ${live.map(([c, n]) => `<li data-n="${n}" class="silhouette grid place-items-center p-1 rounded-xl bg-[#fbe9bd] text-[11px] sm:text-xs font-extrabold text-center"><span class="text-3xl sm:text-4xl">${pic(c)}</span><span>???</span></li>`).join('')}</ul></aside>`;
     ctx.progress(0, NEED, 'Ditemukan');
     const sc = game.querySelector('#sc');
     game.querySelector('#hint').onclick = () => {

@@ -8,12 +8,10 @@
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   Object.assign(PK, { $, h, shuffle, wait });
 
-  /* ---------- State (localStorage aman) ---------- */
-  const KEY = 'pk_state';
+  /* ---------- State (hanya di memori: tiap web dibuka/di-refresh, progres mulai dari awal) ---------- */
   const def = { nama: '', done: [], tokenAt: 0, evaluasi: null, musik: true, stars: {} };
   PK.state = { ...def };
-  try { Object.assign(PK.state, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { /* tanpa penyimpanan */ }
-  PK.save = () => { try { localStorage.setItem(KEY, JSON.stringify(PK.state)); } catch (e) { /* abaikan */ } };
+  PK.save = () => {}; // sengaja kosong: progres tidak disimpan
   PK.reset = () => { PK.state = { ...def, nama: PK.state.nama, musik: PK.state.musik }; PK.save(); };
   PK.unlocked = () => Math.min(PK.state.done.length + 1, PK.data.pos.length); // pos terbuka terakhir
   PK.allDone = () => PK.state.done.length >= PK.data.pos.length;
