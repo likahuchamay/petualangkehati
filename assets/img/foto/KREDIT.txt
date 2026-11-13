@@ -51,3 +51,8 @@ ular.jpg -> File:Common tree snake (Dendrelaphis punctulatus) Daintree 4.jpg | C
 bg-sawah.jpg = foto eko-sawah, bg-laut.jpg = foto eko-laut (versi besar, sumber sama)
 gajah.jpg -> File:African Bush Elephant.jpg | (lihat halaman berkas Commons) | GFDL 1.2
 bunga.jpg -> File:(MHNT) Hibiscus moscheutos - Red swamp rose-mallow flower - Les Martels, Giroussens Tarn.jpg | Didier Descouens | CC BY-SA 4.0
+
+padi.png - "Oryza sativa MHNT.BOT.2015.2.52" (Wikimedia Commons, CC BY-SA 3.0, Didier Descouens / MHNT). Latar dihapus (dipotong).
+kepiting.png - "Painted ghost crab (Ocypode gaudichaudii) Osa" (Wikimedia Commons, CC BY-SA 3.0). Latar dihapus (dipotong).
+hiu.png - gambar hiu transparan dari pemilik project.
+gurita.png - gambar gurita transparan dari pemilik project.
